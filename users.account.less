@@ -1,0 +1,578 @@
+@import "../site/variables";
+@import "../bootstrap/mixins";
+
+@team-admin-color: lighten(@green, 20%);
+
+aside#page-header{
+  border-bottom:1px solid @stormboard-grey;
+}
+main{
+  &:before{
+    display:none;
+  }
+}
+
+.account-nav{
+  li.active{
+    a{
+      background:@stormboard-blue;
+      color:white;
+    }
+  }
+
+  li:hover{
+    a{
+      background:lighten(@stormboard-blue, 5%);
+      color:white;
+    }
+  }
+  li.divider {
+    height: 10px;
+    margin: 0;
+    border-bottom: 1px solid #f2f2f2;
+    border-top: 1px solid #e9e9e9;
+  }
+
+  li.divider-text {
+    background:#eee;
+    border-bottom:2px solid @stormboard-grey;
+    color:@stormboard-grey;
+    height: 40px;
+    padding: 10px 15px;
+    cursor:default;
+
+    &.teams{
+      border-top:1px solid #ddd !important;
+    }
+  }
+
+  li.team {
+    a{
+      height:52px;
+      line-height:34px;
+    }
+
+    .teamlogo {
+      height: 32px;
+      width: 32px;
+      float: left;
+      margin-right: 10px;
+      font-size: 10pt;
+      line-height: 30px;
+    }
+
+  }
+}
+
+.account-body{
+  > .tab-content{
+    .tab-pane{
+      padding:20px;
+
+      .tab-pane{
+        padding:20px 0 0 0;
+      }
+    }
+  }
+
+  legend{
+    button{
+      margin-top:-12px;
+    }
+  }
+}
+
+.invite-wrapper{
+  width:100%;
+  height: 0;
+  overflow: hidden;
+
+  &.invite-container-show {
+    height: auto;
+
+    .invite-container{
+      transform: translateY(0%) translateZ(0);
+    }
+  }
+}
+
+.invite-container{
+  margin-top:20px;
+  transform: translateY(-120%) translateZ(0);
+  transition: transform 0.3s;
+  will-change: transform;
+
+  .badge{
+    background:@red;
+    cursor:pointer;
+    margin-top:6px;
+  }
+}
+
+.user-perm-icon{
+  color:@stormboard-blue;
+  font-weight:bold;
+
+  &.disabled{
+    color:@stormboard-grey;
+    font-weight:normal;
+    opacity:.7;
+  }
+}
+
+fieldset.notifications, fieldset.webhooks, #dg_usergroups{
+  .checkbox-list{
+    width:100%;
+
+    li, label{
+      width:700px !important;
+    }
+    input[type="checkbox"]+label:after, input[type="radio"]+label:after{
+      float:left;
+      margin-right:10px;
+    }
+  }
+}
+
+table.notifications{
+  tr{
+    th:nth-of-type(-n+3), td:nth-of-type(-n+3){
+      width:40px;
+      text-align:center;
+    }
+  }
+
+  .notify-icon{
+    color:@stormboard-grey;
+    vertical-align:middle;
+    font-size:16pt;
+  }
+
+  th.mobilepush, td.mobilepush{
+    display:none;
+  }
+}
+
+fieldset.notifications{
+
+  .disconnect-apps{
+    float:right;
+
+    .slack{
+      img{
+        filter: grayscale(100%);
+      }
+      &:hover{
+        img {
+          filter: none;
+        }
+      }
+    }
+  }
+}
+
+[id^="addgroupcontainer"], [id^="groupUsers"], [id^="divImportUser"], [id^="divAddUserGroup"]{
+  display:none
+}
+
+[id^="api-key"]{
+  background:white;
+}
+
+.teamuser-dropdown {
+  li{
+    text-align:left;
+  }
+}
+
+.user_container {
+  .tab-content{
+    margin-top:10px;
+  }
+  .tab-pane{
+    padding:0;
+  }
+  .usersearch, .stormsearch{
+    clear: both;
+    height: 36px;
+    margin-bottom:10px;
+    margin-right:-12px;
+
+    .input-group, .btn-group{
+      padding-right: 12px;
+      padding-bottom: 8px;
+    }
+
+    button.search {
+      width: 100%;
+    }
+  }
+}
+
+.extra-actions{
+  text-align: right;
+  button, a {
+    padding: 5px 20px;
+  }
+}
+
+[id^="ip-whitelist"]{
+  input.ip{
+    max-width:160px;
+  }
+}
+
+legend{
+  .btn{
+    margin-top:-10px;
+  }
+  .pmt-info{
+    float:right;
+  }
+}
+
+.pstrength-minchar{
+  display:none;
+}
+
+.edit-team-payment{
+  margin-bottom:40px;
+}
+.table-devices{
+  .label{
+    padding:.75em;
+  }
+}
+
+#dg-assign-storm{
+  .input-group{
+    margin:40px 0 20px;
+  }
+}
+.assign-storm{
+  z-index:1000000;
+}
+
+[id^="corpUserTable"] {
+  tr.team-admin{
+    td:first-child{
+      padding-left:5px;
+      border-left: 5px solid @team-admin-color;
+    }
+
+    li.team-admin{
+      margin:-5px 0 10px;
+      padding:5px 0;
+      background: @team-admin-color !important;
+      border-bottom:1px solid @green;
+
+      a, a:hover {
+        background: @team-admin-color !important;
+        color: white;
+      }
+    }
+  }
+}
+
+[id^="salescollateral"] {
+  .table{
+    tbody{
+      td{
+        line-height:28px;
+      }
+    }
+  }
+  .sa-file-icon {
+    font-size: 20pt;
+    color: @stormboard-blue;
+  }
+}
+
+input#username, input#email{
+  border-radius: 4px;
+
+  &.error{
+    border-bottom-right-radius: 0 !important;
+    border-top-right-radius: 0 !important;
+    border: 2px solid #d63b34 !important;
+
+    &:focus{
+      border: 2px solid #d63b34 !important;
+    }
+  }
+}
+
+form#frmEditUser{
+  .input-group{
+    width:100%;
+  }
+}
+.team-container{
+  .alert.active-users{
+    padding:10px 10px;
+  }
+  .add-annual-users{
+    margin-left:5px;
+  }
+  .storm-type-caret{
+    position: relative;
+    padding-right: 0;
+  }
+  .storm-type-caret:before{
+    width: 0;
+    height: 0;
+    margin-left: 0px;
+    vertical-align: middle;
+    border-top: 4px solid;
+    border-right: 4px solid transparent;
+    border-left: 4px solid transparent;
+    content: "";
+    position: absolute;
+    top: 15px;
+    right: 7px;
+  }
+  .search-storm-type{
+    color:#555;
+    height:20px;
+    border: 0;
+    border-radius: 0;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-color: transparent;
+    padding: 2px 6px;
+    margin:0;
+    width: 110px;
+    position: relative;
+  }
+  .stormgrid{
+    margin-top:20px;
+  }
+}
+.team-settings-tab{
+  .permissions{
+    margin-top:40px;
+  }
+  p.lead{
+    font-size:16px;
+  }
+  p.save-changes{
+    margin-top:40px;
+  }
+}
+
+.team-users-tab{
+
+  td span.email{
+    font-size:8pt;
+    color:#999;
+    padding-left:20px;
+  }
+
+  td .checkbox-list{
+    padding:0;
+    width:120px;
+
+    label{
+      width:100%;
+
+      &:after{
+        margin-right:40px;
+      }
+    }
+  }
+}
+
+.permissions{
+  .checkbox-list{
+    width:100% !important;
+
+    label{
+      width:100% !important;
+      user-select:none;
+
+      &:after{
+        float:left !important;
+        margin-right:20px;
+      }
+    }
+  }
+
+  .whitelisted{
+    padding-left:0;
+    list-style:none;
+
+    li{
+      margin-bottom:10px;
+    }
+  }
+
+  .createstormsdomains{
+    margin-left:60px;
+  }
+}
+
+#integrations.tab-pane{
+
+  .add-integration{
+    margin-bottom:50px !important;
+
+    a.btn, button.btn{
+      width:120px;
+      margin:0 10px 10px 0;
+    }
+  }
+
+  .zapier-integration{
+
+    h4{
+      line-height:40px;
+
+      .zapier-logo{
+        height:40px;
+        margin-right:10px;
+      }
+
+      span{
+        line-height:40px;
+        vertical-align: sub;
+      }
+
+      .zapier-see-more{
+        float:right;
+        background: #ff4a00;
+        border-radius: 3px;
+        border: none;
+        color: #fff;
+        cursor: pointer;
+        display: inline-block;
+        font-size: 14px;
+        margin: 0;
+        overflow: hidden;
+        padding: 0 12px;
+        text-decoration: none;
+        white-space: nowrap;
+        vertical-align: middle;
+        box-shadow: none;
+        -webkit-transition: background 0.25s ease;
+        -o-transition: background 0.25s ease;
+        transition: background 0.25s ease;
+      }
+    }
+
+    .zapier-explain{
+      font-size:14px;
+      color:@stormboard-grey;
+      margin:25px 0 !important;
+    }
+  }
+}
+
+/* New Team Logo Dialog */
+#dg_changelogo{
+  padding:0 5px;
+
+  *{
+    .user-select(none);
+  }
+  .teamlogo{
+    height:100px;
+    width:100px;
+    line-height:100px;
+    font-size:48pt;
+    margin:30px auto;
+  }
+
+  .row{
+    margin:-5px -5px 0;
+
+    &, > div{
+      height:213px;
+    }
+  }
+
+  #selectlogo{
+    text-align:center;
+    background:#f2f2f2;
+    color:@stormboard-grey;
+  }
+
+  .qq-upload-button{
+    height:200px;
+    width:100%;
+    padding:50px 0;
+    outline:none;
+  }
+  .qq-upload-drop-area{
+    display:none;
+  }
+  .qq-upload-list{
+    margin-top:70px;
+    display:none;
+  }
+}
+
+
+/* Deactivate User Dialog */
+#dg_deactivate_user{
+  .alert-info {
+    height:85px;
+
+    .checkbox-list {
+      width: 100%;
+
+      label {
+        width: 100%;
+
+        &:after{
+          float:left;
+          margin-right:10px;
+        }
+      }
+    }
+  }
+}
+
+/* Storm Users Dialog */
+#dg_stormuserlist{
+  ul{
+    list-style:none;
+    padding:0;
+    margin:0;
+    background:white;
+    height:300px;
+    overflow:scroll;
+    li{
+      height:56px;
+      line-height:56px;
+      border-bottom:1px solid #F9F9F9;
+      .avatar{
+        margin-left: 5px;
+        width:50px;
+        height:50px;
+        float:left;
+        img{
+          width:50px;
+          height:50px;
+          border: 2px solid @stormboard-blue;
+        }
+        .char{
+          font-size:20pt;
+        }
+      }
+
+      span {
+        font-size:20px;
+        margin-left: 5px;
+      }
+    }
+    li:hover{
+      background-color:#F9F9F9;
+    }
+  }
+}
+
+#cleanupUsers{
+  .message{
+    text-align: center;
+  }
+}
